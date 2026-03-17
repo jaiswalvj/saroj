@@ -1,0 +1,68 @@
+Create a modern, mobile-responsive personal portfolio website using HTML, CSS, and JavaScript.
+
+Website Owner Details:
+Name: Saroj Jaiswal
+Profession: Mechanical Engineer (Diploma Holder)
+Current Job: Job Performer Mechanical at Jupiter Electromechanical Contracting LLC, Abu Dhabi (UAE)
+Experience: Experienced in multinational companies and local industries
+Location: Abu Dhabi, UAE (Permanent Address: Nepal)
+
+Contact Details:
+Phone: +971 507309742
+Email: jaiswalsarojj821@gmail.com
+
+Requirements:
+- Clean, modern, and professional design
+- Color theme: dark blue, white, and light gray (engineering style)
+- Fully responsive (mobile-friendly)
+- Smooth scrolling and simple animations
+
+Sections to include:
+
+1. Hero Section:
+- Name and title (Mechanical Engineer)
+- Short tagline like: "Experienced Mechanical Engineer delivering reliable industrial solutions"
+- Call-to-action button: "Contact Me"
+
+2. About Me:
+- Brief introduction about Saroj Jaiswal
+- Mention diploma in mechanical engineering
+- Highlight experience in multinational and local companies
+- Focus on skills, reliability, and professionalism
+
+3. Skills Section:
+- Mechanical maintenance
+- Equipment handling
+- Industrial operations
+- Problem-solving
+- Teamwork
+- Safety compliance
+
+4. Experience Section:
+- Current role at Jupiter Electromechanical Contracting LLC
+- Describe responsibilities professionally
+- Add placeholder for previous companies (if needed)
+
+5. Projects Section:
+- Since no portfolio available, add sample/dummy engineering project cards like:
+  - HVAC System Installation
+  - Mechanical Maintenance Project
+  - Industrial Equipment Setup
+
+6. Contact Section:
+- Display phone, email, and location
+- Add a simple contact form (Name, Email, Message)
+
+7. Footer:
+- Simple footer with name and copyright
+
+Extra Features:
+- Add icons (Font Awesome)
+- Smooth hover effects
+- Clean typography
+- Sticky navigation bar
+- Add "Download CV" button (dummy link for now)
+
+Output:
+- Provide complete working code in one file (or separate HTML, CSS, JS files)
+- Code should be clean and well-structured
