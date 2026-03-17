@@ -10,7 +10,8 @@ import {
   Menu, X, Download, Mail, Phone, MapPin, ExternalLink,
   ChevronDown, Wrench, Cog, Shield, Users, Lightbulb,
   Zap, Award, Briefcase, Code, Settings, CheckCircle2,
-  ArrowRight, Star, Building2, GraduationCap, Send
+  Star, Building2, GraduationCap, Send, ClipboardCheck,
+  AlertTriangle, Lock, Factory, Globe, BookOpen
 } from "lucide-react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 
@@ -18,108 +19,153 @@ const navItems = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ];
 
 const skills = [
   {
-    icon: Wrench,
-    title: "Mechanical Maintenance",
-    desc: "Preventive and corrective maintenance of mechanical systems, ensuring peak operational efficiency.",
-    level: 92,
-  },
-  {
-    icon: Cog,
-    title: "Equipment Handling",
-    desc: "Expert operation and troubleshooting of industrial machinery and heavy equipment.",
-    level: 88,
-  },
-  {
-    icon: Zap,
-    title: "Industrial Operations",
-    desc: "Streamlining industrial processes and optimizing production workflows.",
-    level: 85,
-  },
-  {
-    icon: Lightbulb,
-    title: "Problem Solving",
-    desc: "Systematic root-cause analysis and swift resolution of complex technical challenges.",
-    level: 90,
-  },
-  {
-    icon: Users,
-    title: "Teamwork",
-    desc: "Collaborative work culture with strong communication across multidisciplinary teams.",
+    icon: ClipboardCheck,
+    title: "Permit to Work (PTW) System",
+    desc: "Administer and supervise PTW systems ensuring compliance with safety policies, PSSP, and SOPs to mitigate operational risks.",
     level: 95,
   },
   {
+    icon: AlertTriangle,
+    title: "Job Safety Analysis (JSA)",
+    desc: "Conduct site inspections, hazard identification, and JSA development to ensure all work is carried out safely and efficiently.",
+    level: 93,
+  },
+  {
+    icon: Lock,
+    title: "LOTO & Isolation Procedures",
+    desc: "Expert in Lockout/Tagout, isolation protocols, confined space entry, working at height, and hot work safety procedures.",
+    level: 92,
+  },
+  {
+    icon: Factory,
+    title: "FMCG Production & Process Control",
+    desc: "Biscuit & bakery manufacturing, batch mixing, oven operating, packaging machine knowledge, and GMP compliance.",
+    level: 90,
+  },
+  {
     icon: Shield,
-    title: "Safety Compliance",
-    desc: "Strict adherence to HSE standards, safety protocols, and regulatory requirements.",
+    title: "HSE Compliance",
+    desc: "Strict adherence to ADNOC-approved procedures, HSE standards, and regulatory requirements across industrial operations.",
     level: 96,
+  },
+  {
+    icon: Cog,
+    title: "Equipment & Machinery",
+    desc: "Equipment calibration, changeover procedures, packaging machine operation, and preventive maintenance scheduling.",
+    level: 88,
   },
 ];
 
 const experiences = [
   {
     company: "Jupiter Electromechanical Contracting LLC",
-    role: "Mechanical Engineer (Job Performer)",
+    role: "Job Performer Mechanical (ADNOC Approved)",
     location: "Abu Dhabi, UAE",
-    period: "Present",
+    period: "August 2025 – Present",
     type: "Current",
+    ctId: "CT ID: CT90034457",
     responsibilities: [
-      "Perform preventive and corrective maintenance on electromechanical systems",
-      "Inspect, troubleshoot, and repair industrial mechanical equipment",
-      "Coordinate with project teams to ensure timely completion of mechanical works",
-      "Implement safety protocols and ensure compliance with UAE HSE standards",
-      "Prepare maintenance reports and documentation for management review",
-      "Support installation and commissioning of new mechanical systems",
+      "Perform Job Performer duties in compliance with ADNOC-approved procedures, safety standards, and PTW (Permit to Work) requirements.",
+      "Use tools, equipment, and PPE correctly and report unsafe conditions or acts immediately.",
+      "Conduct site inspections, hazard identification, and Job Safety Analysis (JSA) to ensure all work is carried out safely and efficiently.",
+      "Ensure proper implementation of HSE rules, including Isolation & Lockout/Tagout (LOTO), confined space entry, working at height, hot work, and critical work activities.",
+      "Maintain effective communication with multidisciplinary teams to ensure smooth workflow and safe execution of tasks.",
+      "Monitor worksite conditions, identify risks, and ensure corrective actions are taken immediately.",
     ],
   },
   {
-    company: "Multinational & Local Industries",
-    role: "Mechanical Technician / Engineer",
-    location: "Various Locations",
-    period: "Prior Experience",
+    company: "Descon Engineering (ADNOC Group)",
+    role: "PTW Coordinator (Job Performer)",
+    location: "Abu Dhabi, UAE",
+    period: "March 2025 – August 2025",
     type: "Previous",
+    ctId: "CT ID: CT90028285",
     responsibilities: [
-      "Worked across diverse industrial environments in multinational settings",
-      "Handled mechanical maintenance in manufacturing and process industries",
-      "Participated in shutdown and turnaround maintenance projects",
-      "Operated and maintained pumps, compressors, and rotating equipment",
-      "Followed strict quality and safety guidelines in high-risk environments",
+      "Administer and supervise the Permit to Work system ensuring compliance with safety policies, PSSP, and SOPs to mitigate operational risks.",
+      "Lead coordination of daily PTW planning meetings to align construction activities with safety standards.",
+      "Conduct audits and inspections to ensure adherence to Lock Out/Tag Out protocols.",
+      "Generate and analyze PTW performance metrics to identify process enhancements and improve permit issuance efficiency.",
+      "Facilitate communication between construction teams and HSE departments, ensuring comprehensive record keeping and incident reporting.",
+    ],
+  },
+  {
+    company: "Sara Food Industries Pvt. Ltd. (Sasna Group)",
+    role: "Sr. Production Officer",
+    location: "Dhunebesi-07, Dhading, Nepal",
+    period: "January 2023 – March 2025",
+    type: "Previous",
+    ctId: null,
+    responsibilities: [
+      "Directed quality control processes across raw material inspection to final packaging, ensuring product consistency and compliance with GMP and ISO standards.",
+      "Spearheaded HACCP implementation, identifying critical control points and instituting preventive measures.",
+      "Optimized machine uptime through effective maintenance scheduling, coordination with technical teams, and vendor management for timely procurement.",
+      "Conducted comprehensive consumption analyses to minimize raw material wastage and enhance production cost-efficiency.",
+      "Developed and delivered targeted training programs on safety protocols, hygiene standards, and operational best practices for production staff.",
+    ],
+  },
+  {
+    company: "Himandri Foods Pvt. Ltd. (Pran Group)",
+    role: "Production Officer",
+    location: "Jeetpur, Nepal",
+    period: "March 2022 – December 2022",
+    type: "Previous",
+    ctId: null,
+    responsibilities: [
+      "Managed production scheduling and workflow optimization in a fast-paced chocolate manufacturing environment.",
+      "Maintained rigorous documentation and performance tracking for raw materials and finished goods.",
+      "Collaborated with maintenance to implement preventive maintenance plans, reducing downtime in packaging and processing lines.",
+      "Provided leadership training to supervisors, enhancing team productivity and process adherence.",
+    ],
+  },
+  {
+    company: "Britannia Nepal Pvt. Ltd.",
+    role: "Production Supervisor",
+    location: "Birgunj, Nepal",
+    period: "June 2020 – February 2022",
+    type: "Previous",
+    ctId: null,
+    responsibilities: [
+      "Oversaw production operations, ensuring adherence to manufacturing standards and timely delivery schedules.",
+      "Analyzed raw material consumption trends and coordinated with procurement to align stock levels.",
+      "Validated formulations, chemical use, and processing parameters to maintain product quality and safety.",
+      "Led continuous improvement initiatives including root cause analysis and corrective action plans to resolve operational deviations.",
+      "Facilitated cross-functional communication among production, quality, and engineering teams to troubleshoot machinery and optimize workflows.",
+      "Ensured proper staging and batching of concentrate, responsible for correct sequence of mixing as per Britannia documents.",
     ],
   },
 ];
 
-const projects = [
+const certifications = [
   {
-    title: "HVAC System Installation",
-    category: "MEP Engineering",
-    description:
-      "Complete design, installation, and commissioning of a large-scale HVAC system for a commercial facility. Included ductwork, chiller units, AHU installation, and full system testing.",
-    tags: ["HVAC", "Chiller Systems", "Commissioning", "MEP"],
-    icon: Cog,
-    highlights: ["5,000 sqm facility", "Energy-efficient design", "On-time delivery"],
+    title: "Work Management System",
+    issuer: "Descon Engineering Ltd.",
+    date: "April 2025",
   },
   {
-    title: "Mechanical Maintenance Overhaul",
-    category: "Industrial Maintenance",
-    description:
-      "Led a comprehensive mechanical maintenance overhaul for an industrial plant, covering rotating equipment, piping systems, and structural components. Reduced downtime by 30%.",
-    tags: ["Rotating Equipment", "Piping", "Predictive Maintenance"],
-    icon: Wrench,
-    highlights: ["30% downtime reduction", "Zero safety incidents", "Cost optimized"],
+    title: "Work at Height and Rescue",
+    issuer: "Descon Engineering Ltd.",
+    date: "April 2025",
   },
   {
-    title: "Industrial Equipment Setup",
-    category: "Equipment Installation",
-    description:
-      "Supervised the setup and commissioning of industrial production equipment including conveyors, pumps, and compressor systems for a new manufacturing unit in Abu Dhabi.",
-    tags: ["Pumps", "Compressors", "Conveyors", "Commissioning"],
-    icon: Settings,
-    highlights: ["New facility launch", "Full commissioning", "Team of 12"],
+    title: "Electrical Safety",
+    issuer: "Britannia Nepal Pvt. Ltd.",
+    date: "June 2021",
+  },
+  {
+    title: "Working at Height",
+    issuer: "Britannia Nepal Pvt. Ltd.",
+    date: "June 2021",
+  },
+  {
+    title: "Time Management",
+    issuer: "Britannia Nepal Pvt. Ltd.",
+    date: "July 2021",
   },
 ];
 
@@ -177,7 +223,7 @@ export default function Portfolio() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      const sections = ["about", "skills", "experience", "projects", "contact"];
+      const sections = ["about", "skills", "experience", "certifications", "contact"];
       for (const section of sections.reverse()) {
         const el = document.getElementById(section);
         if (el && window.scrollY >= el.offsetTop - 120) {
@@ -221,7 +267,7 @@ export default function Portfolio() {
           <div className="flex items-center justify-between h-16">
             <a
               href="#"
-              className="text-lg font-bold tracking-tight text-foreground flex items-center gap-2"
+              className="text-lg font-bold tracking-tight flex items-center gap-2"
               data-testid="link-logo"
             >
               <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold">
@@ -239,7 +285,7 @@ export default function Portfolio() {
                   key={item.label}
                   href={item.href}
                   data-testid={`link-nav-${item.label.toLowerCase()}`}
-                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     activeSection === item.href.slice(1)
                       ? "text-primary bg-primary/10"
                       : scrolled
@@ -311,9 +357,7 @@ export default function Portfolio() {
         id="home"
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
-        {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[hsl(215,60%,10%)] via-[hsl(215,55%,15%)] to-[hsl(210,70%,22%)]" />
-        {/* Grid overlay */}
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
@@ -322,7 +366,6 @@ export default function Portfolio() {
             backgroundSize: "60px 60px",
           }}
         />
-        {/* Glow blobs */}
         <div className="absolute top-1/4 left-1/4 w-80 h-80 rounded-full bg-primary/20 blur-[100px]" />
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-accent/15 blur-[80px]" />
 
@@ -348,7 +391,7 @@ export default function Portfolio() {
               data-testid="badge-profession"
             >
               <Briefcase className="w-3 h-3 mr-1.5 inline" />
-              Mechanical Engineer · Abu Dhabi, UAE
+              Job Performer Mechanical (ADNOC Approved) · Abu Dhabi, UAE
             </Badge>
           </motion.div>
 
@@ -369,8 +412,8 @@ export default function Portfolio() {
             className="text-lg sm:text-xl text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed"
             data-testid="text-hero-tagline"
           >
-            Experienced Mechanical Engineer delivering reliable industrial solutions
-            across multinational companies and local industries
+            Technically skilled professional with ADNOC experience, specializing in PTW coordination,
+            JSA development, hazard identification, LOTO application, and HSE compliance
           </motion.p>
 
           <motion.div
@@ -403,12 +446,12 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1 }}
-            className="mt-16 flex justify-center gap-8"
+            className="mt-16 flex justify-center gap-8 flex-wrap"
           >
             {[
               { value: "5+", label: "Years Experience" },
-              { value: "2+", label: "Countries Worked" },
-              { value: "50+", label: "Projects Done" },
+              { value: "2", label: "ADNOC CT IDs" },
+              { value: "5", label: "Companies Worked" },
             ].map((stat) => (
               <div key={stat.label} className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, '-')}`}>
                 <div className="text-2xl sm:text-3xl font-bold text-white">{stat.value}</div>
@@ -418,7 +461,6 @@ export default function Portfolio() {
           </motion.div>
         </div>
 
-        {/* Scroll hint */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -441,46 +483,46 @@ export default function Portfolio() {
           <AnimatedSection>
             <div className="text-center mb-16">
               <Badge className="mb-3" data-testid="badge-about">About Me</Badge>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2">
-                Who I Am
-              </h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2">Who I Am</h2>
               <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-                A dedicated mechanical engineer with hands-on experience across industries
+                A dedicated professional with ADNOC-approved experience in safety, operations, and production
               </p>
             </div>
           </AnimatedSection>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             <AnimatedSection>
               <div className="space-y-5">
                 <p className="text-foreground leading-relaxed text-base sm:text-lg" data-testid="text-about-intro">
-                  I am <strong>Saroj Jaiswal</strong>, a diploma-qualified Mechanical Engineer
-                  currently serving as a Job Performer at{" "}
+                  I am <strong>Saroj Jaiswal</strong>, a technically skilled Job Performer Mechanical
+                  with ADNOC experience, currently employed at{" "}
                   <strong>Jupiter Electromechanical Contracting LLC</strong> in Abu Dhabi, UAE.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  With hands-on experience in both multinational corporations and local industrial
-                  environments, I have developed a strong foundation in mechanical maintenance,
-                  equipment handling, and industrial operations. My journey has taken me from
-                  Nepal to the UAE, where I continue to grow professionally.
+                  I specialize in PTW coordination, JSA development, hazard identification, LOTO
+                  application, and HSE compliance. I hold a strong background in FMCG processing
+                  operations with proven capability in system monitoring, process control, and
+                  maintaining safe, efficient work environments.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  I hold a <strong className="text-foreground">Diploma in Mechanical Engineering</strong> and
-                  bring a practical, solutions-oriented approach to every project. I pride myself
-                  on reliability, precision, and a commitment to the highest safety standards.
+                  I hold a <strong className="text-foreground">Diploma in Mechanical Engineering</strong> from
+                  Birgunj Institute of Technology (CTEVT, 2016–2019) and bring a practical,
+                  safety-first approach to every project.
                 </p>
 
-                <div className="grid grid-cols-2 gap-4 pt-4">
+                <div className="grid grid-cols-2 gap-4 pt-2">
                   {[
-                    { icon: MapPin, label: "Location", value: "Abu Dhabi, UAE" },
+                    { icon: MapPin, label: "Work Location", value: "Abu Dhabi, UAE" },
+                    { icon: MapPin, label: "Perm. Address", value: "Nijgadh, Nepal" },
                     { icon: GraduationCap, label: "Education", value: "Diploma in Mech. Eng." },
                     { icon: Building2, label: "Current", value: "Jupiter Electromechanical" },
-                    { icon: Award, label: "Origin", value: "Nepal" },
+                    { icon: Award, label: "Nationality", value: "Nepalese" },
+                    { icon: Users, label: "Languages", value: "English, Nepali, Hindi, Bhojpuri" },
                   ].map((item) => (
                     <div
                       key={item.label}
                       className="flex items-start gap-3"
-                      data-testid={`info-${item.label.toLowerCase()}`}
+                      data-testid={`info-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
                         <item.icon className="w-4 h-4 text-primary" />
@@ -489,9 +531,7 @@ export default function Portfolio() {
                         <div className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
                           {item.label}
                         </div>
-                        <div className="text-sm font-semibold text-foreground mt-0.5">
-                          {item.value}
-                        </div>
+                        <div className="text-sm font-semibold text-foreground mt-0.5">{item.value}</div>
                       </div>
                     </div>
                   ))}
@@ -515,27 +555,57 @@ export default function Portfolio() {
             </AnimatedSection>
 
             <AnimatedSection>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { icon: Wrench, label: "Maintenance Expert", desc: "Preventive & corrective maintenance" },
-                  { icon: Cog, label: "Equipment Specialist", desc: "Industrial machinery operation" },
-                  { icon: Shield, label: "Safety First", desc: "HSE compliance certified" },
-                  { icon: Star, label: "Multinational Exp.", desc: "International work experience" },
-                ].map((card) => (
-                  <Card
-                    key={card.label}
-                    className="hover-elevate transition-all duration-300"
-                    data-testid={`card-about-${card.label.toLowerCase().replace(/\s+/g, '-')}`}
-                  >
-                    <CardContent className="p-5">
-                      <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center mb-3">
-                        <card.icon className="w-5 h-5 text-primary" />
+              <div className="space-y-4">
+                <h3 className="text-base font-bold text-foreground mb-4 flex items-center gap-2">
+                  <BookOpen className="w-4 h-4 text-primary" />
+                  Key Professional Highlights
+                </h3>
+                <div className="grid grid-cols-1 gap-3">
+                  {[
+                    { icon: ClipboardCheck, label: "ADNOC Approved", desc: "Certified Job Performer with two active ADNOC CT IDs" },
+                    { icon: Shield, label: "HSE & PTW Expert", desc: "PTW coordination, JSA, LOTO, confined space & hot work safety" },
+                    { icon: Factory, label: "FMCG Production", desc: "GMP, HACCP, ISO compliance in biscuit, bakery & chocolate manufacturing" },
+                    { icon: Globe, label: "Multinational Exp.", desc: "Worked across UAE and Nepal in multinational organizations" },
+                  ].map((card) => (
+                    <Card
+                      key={card.label}
+                      className="hover-elevate transition-all duration-300"
+                      data-testid={`card-about-${card.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      <CardContent className="p-4 flex items-start gap-3">
+                        <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center shrink-0">
+                          <card.icon className="w-4 h-4 text-primary" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-sm text-card-foreground">{card.label}</div>
+                          <div className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{card.desc}</div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+
+                {/* Education Card */}
+                <Card data-testid="card-education">
+                  <CardContent className="p-5">
+                    <h4 className="font-bold text-sm text-card-foreground mb-3 flex items-center gap-2">
+                      <GraduationCap className="w-4 h-4 text-primary" />
+                      Education
+                    </h4>
+                    <div className="space-y-3">
+                      <div>
+                        <div className="font-semibold text-sm text-card-foreground">Diploma in Mechanical Engineering</div>
+                        <div className="text-xs text-muted-foreground">Birgunj Institute of Technology, CTEVT</div>
+                        <div className="text-xs text-muted-foreground">2016 – 2019</div>
                       </div>
-                      <div className="font-semibold text-sm text-card-foreground">{card.label}</div>
-                      <div className="text-xs text-muted-foreground mt-1 leading-relaxed">{card.desc}</div>
-                    </CardContent>
-                  </Card>
-                ))}
+                      <div className="border-t border-card-border pt-3">
+                        <div className="font-semibold text-sm text-card-foreground">School Leaving Certificate (SLC)</div>
+                        <div className="text-xs text-muted-foreground">Holy Angels' Secondary Boarding School</div>
+                        <div className="text-xs text-muted-foreground">Government of Nepal</div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </AnimatedSection>
           </div>
@@ -552,7 +622,7 @@ export default function Portfolio() {
                 Skills & Expertise
               </h2>
               <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-                A blend of technical proficiency and professional soft skills built over years of industrial experience
+                A combination of safety, operational, and technical skills built through ADNOC-approved and multinational experience
               </p>
             </div>
           </AnimatedSection>
@@ -568,13 +638,13 @@ export default function Portfolio() {
                 >
                   <Card
                     className="h-full hover-elevate transition-all duration-300"
-                    data-testid={`card-skill-${skill.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    data-testid={`card-skill-${i}`}
                   >
                     <CardContent className="p-6">
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                         <skill.icon className="w-6 h-6 text-primary" />
                       </div>
-                      <h3 className="font-bold text-card-foreground mb-2">{skill.title}</h3>
+                      <h3 className="font-bold text-card-foreground mb-2 text-sm leading-snug">{skill.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed mb-4">{skill.desc}</p>
                       <SkillBar level={skill.level} label="Proficiency" />
                     </CardContent>
@@ -585,25 +655,27 @@ export default function Portfolio() {
           </div>
 
           <AnimatedSection>
-            <Card data-testid="card-tools">
+            <Card data-testid="card-technical-tools">
               <CardContent className="p-6">
                 <h3 className="font-bold text-card-foreground mb-4 flex items-center gap-2">
                   <Code className="w-4 h-4 text-primary" />
-                  Technical Knowledge Areas
+                  Technical Skills & Tools
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    "HVAC Systems", "Rotating Equipment", "Pumps & Compressors",
-                    "Piping Systems", "Ductwork", "Hydraulics", "Pneumatics",
-                    "AutoCAD", "Technical Drawing", "MEP Works",
-                    "Predictive Maintenance", "Vibration Analysis",
-                    "ISO Standards", "OSHA/HSE", "Welding Basics"
+                    "Permit to Work (PTW)", "Job Safety Analysis (JSA)", "LOTO / Isolation",
+                    "Confined Space Entry", "Working at Height", "Hot Work Safety",
+                    "GMP & HACCP", "ISO Standards", "MS Office Suite",
+                    "Production Management Software", "Data Analysis & Reporting",
+                    "Equipment Calibration", "Changeover Procedures",
+                    "Batch Mixing", "Packaging Machines", "Oven Operations",
+                    "ADNOC Procedures", "HSE Compliance", "PPE Usage"
                   ].map((tool) => (
                     <Badge
                       key={tool}
                       variant="secondary"
                       className="text-xs"
-                      data-testid={`badge-tool-${tool.toLowerCase().replace(/\s+/g, '-')}`}
+                      data-testid={`badge-tool-${tool.toLowerCase().replace(/[\s/&()]+/g, '-')}`}
                     >
                       {tool}
                     </Badge>
@@ -622,23 +694,21 @@ export default function Portfolio() {
             <div className="text-center mb-16">
               <Badge className="mb-3" data-testid="badge-experience">Work History</Badge>
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2">
-                Professional Experience
+                Career Experience
               </h2>
               <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-                A track record of delivering high-quality mechanical engineering work across diverse industries
+                Over 5 years of progressive experience across safety-critical and manufacturing environments
               </p>
             </div>
           </AnimatedSection>
 
           <div className="relative">
-            {/* Timeline line */}
             <div className="hidden md:block absolute left-6 top-0 bottom-0 w-px bg-border" />
 
             <div className="space-y-8">
               {experiences.map((exp, i) => (
                 <AnimatedSection key={exp.company}>
                   <div className="md:pl-16 relative">
-                    {/* Timeline dot */}
                     <div
                       className={`hidden md:flex absolute left-3 top-6 w-7 h-7 rounded-full border-2 items-center justify-center ${
                         exp.type === "Current"
@@ -656,10 +726,13 @@ export default function Portfolio() {
                       <CardContent className="p-6 sm:p-8">
                         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
                           <div>
-                            <div className="flex items-center gap-2 flex-wrap mb-1">
+                            <div className="flex items-center gap-2 flex-wrap mb-1.5">
                               {exp.type === "Current" && (
-                                <Badge className="text-xs" data-testid="badge-current">
-                                  Current Position
+                                <Badge className="text-xs" data-testid="badge-current">Current Position</Badge>
+                              )}
+                              {exp.ctId && (
+                                <Badge variant="outline" className="text-xs font-mono">
+                                  {exp.ctId}
                                 </Badge>
                               )}
                             </div>
@@ -670,10 +743,7 @@ export default function Portfolio() {
                               {exp.role}
                             </h3>
                             <div className="flex items-center gap-2 mt-1.5 flex-wrap">
-                              <span
-                                className="font-semibold text-primary text-sm"
-                                data-testid={`text-exp-company-${i}`}
-                              >
+                              <span className="font-semibold text-primary text-sm" data-testid={`text-exp-company-${i}`}>
                                 {exp.company}
                               </span>
                               <span className="text-muted-foreground text-xs">·</span>
@@ -692,10 +762,7 @@ export default function Portfolio() {
 
                         <ul className="space-y-2.5">
                           {exp.responsibilities.map((item, j) => (
-                            <li
-                              key={j}
-                              className="flex items-start gap-2.5 text-sm text-muted-foreground"
-                            >
+                            <li key={j} className="flex items-start gap-2.5 text-sm text-muted-foreground">
                               <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                               {item}
                             </li>
@@ -711,83 +778,46 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ── PROJECTS ── */}
-      <section id="projects" className="py-24 bg-card border-y border-card-border">
+      {/* ── CERTIFICATIONS ── */}
+      <section id="certifications" className="py-24 bg-card border-y border-card-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <Badge className="mb-3" data-testid="badge-projects">Portfolio</Badge>
+              <Badge className="mb-3" data-testid="badge-certifications">Credentials</Badge>
               <h2 className="text-3xl sm:text-4xl font-bold text-card-foreground mt-2">
-                Engineering Projects
+                Certifications & Trainings
               </h2>
               <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-                A selection of mechanical engineering projects showcasing breadth of expertise
+                Professional certifications and training programs completed throughout my career
               </p>
             </div>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, i) => (
-              <AnimatedSection key={project.title}>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {certifications.map((cert, i) => (
+              <AnimatedSection key={cert.title}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="h-full"
+                  transition={{ delay: i * 0.08 }}
                 >
                   <Card
-                    className="h-full flex flex-col hover-elevate transition-all duration-300 group"
-                    data-testid={`card-project-${i}`}
+                    className="hover-elevate transition-all duration-300 h-full"
+                    data-testid={`card-cert-${i}`}
                   >
-                    <CardContent className="p-6 flex flex-col h-full">
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                          <project.icon className="w-6 h-6 text-primary" />
-                        </div>
-                        <Badge variant="secondary" className="text-xs shrink-0 ml-2">
-                          {project.category}
-                        </Badge>
+                    <CardContent className="p-5 flex items-start gap-4 h-full">
+                      <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center shrink-0">
+                        <Award className="w-5 h-5 text-primary" />
                       </div>
-
-                      <h3
-                        className="font-bold text-card-foreground text-base mb-2"
-                        data-testid={`text-project-title-${i}`}
-                      >
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                        {project.description}
-                      </p>
-
-                      <div className="space-y-3">
-                        <div className="flex flex-wrap gap-1.5">
-                          {project.tags.map((tag) => (
-                            <Badge
-                              key={tag}
-                              variant="outline"
-                              className="text-xs"
-                              data-testid={`badge-project-tag-${tag.toLowerCase().replace(/\s+/g, '-')}`}
-                            >
-                              {tag}
-                            </Badge>
-                          ))}
+                      <div>
+                        <div className="font-bold text-sm text-card-foreground leading-snug" data-testid={`text-cert-title-${i}`}>
+                          {cert.title}
                         </div>
-
-                        <div className="pt-2 border-t border-card-border">
-                          <div className="grid grid-cols-3 gap-2">
-                            {project.highlights.map((h) => (
-                              <div
-                                key={h}
-                                className="text-center bg-muted/50 rounded-md px-2 py-1.5"
-                              >
-                                <span className="text-xs font-medium text-muted-foreground leading-tight">
-                                  {h}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
+                        <div className="text-xs text-muted-foreground mt-1">{cert.issuer}</div>
+                        <Badge variant="secondary" className="text-xs mt-2">
+                          {cert.date}
+                        </Badge>
                       </div>
                     </CardContent>
                   </Card>
@@ -804,9 +834,7 @@ export default function Portfolio() {
           <AnimatedSection>
             <div className="text-center mb-16">
               <Badge className="mb-3" data-testid="badge-contact">Get In Touch</Badge>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2">
-                Contact Me
-              </h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2">Contact Me</h2>
               <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
                 Have a project or opportunity? I'd love to hear from you.
               </p>
@@ -814,18 +842,24 @@ export default function Portfolio() {
           </AnimatedSection>
 
           <div className="grid lg:grid-cols-5 gap-10">
-            {/* Contact Info */}
             <AnimatedSection className="lg:col-span-2">
-              <div className="space-y-5">
-                <h3 className="text-lg font-bold text-foreground mb-6">Contact Information</h3>
+              <div className="space-y-4">
+                <h3 className="text-lg font-bold text-foreground mb-5">Contact Information</h3>
 
                 {[
                   {
                     icon: Phone,
-                    label: "Phone",
+                    label: "UAE Phone",
                     value: "+971 507309742",
                     href: "tel:+971507309742",
-                    testid: "link-phone",
+                    testid: "link-phone-uae",
+                  },
+                  {
+                    icon: Phone,
+                    label: "Nepal Phone",
+                    value: "+977-9845857240",
+                    href: "tel:+9779845857240",
+                    testid: "link-phone-nepal",
                   },
                   {
                     icon: Mail,
@@ -836,20 +870,27 @@ export default function Portfolio() {
                   },
                   {
                     icon: MapPin,
-                    label: "Location",
+                    label: "Work Location",
                     value: "Abu Dhabi, UAE",
                     href: null,
-                    testid: "text-location",
+                    testid: "text-location-uae",
+                  },
+                  {
+                    icon: MapPin,
+                    label: "Permanent Address",
+                    value: "Nijgadh, Nepal",
+                    href: null,
+                    testid: "text-location-nepal",
                   },
                 ].map((contact) => (
                   <Card
                     key={contact.label}
                     className="hover-elevate transition-all duration-300"
-                    data-testid={`card-contact-${contact.label.toLowerCase()}`}
+                    data-testid={`card-contact-${contact.label.toLowerCase().replace(/\s+/g, '-')}`}
                   >
                     <CardContent className="p-4 flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center shrink-0">
-                        <contact.icon className="w-5 h-5 text-primary" />
+                      <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center shrink-0">
+                        <contact.icon className="w-4 h-4 text-primary" />
                       </div>
                       <div className="min-w-0">
                         <div className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
@@ -864,10 +905,7 @@ export default function Portfolio() {
                             {contact.value}
                           </a>
                         ) : (
-                          <span
-                            className="text-sm font-semibold text-foreground"
-                            data-testid={contact.testid}
-                          >
+                          <span className="text-sm font-semibold text-foreground" data-testid={contact.testid}>
                             {contact.value}
                           </span>
                         )}
@@ -880,17 +918,16 @@ export default function Portfolio() {
                   <CardContent className="p-4">
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-                      <span className="text-sm font-semibold text-foreground">Available for Opportunities</span>
+                      <span className="text-sm font-semibold text-foreground">Open to Opportunities</span>
                     </div>
                     <p className="text-xs text-muted-foreground leading-relaxed">
-                      Open to new roles and projects in mechanical engineering, maintenance, and industrial operations.
+                      Actively seeking roles in mechanical engineering, HSE, PTW coordination, and industrial operations.
                     </p>
                   </CardContent>
                 </Card>
               </div>
             </AnimatedSection>
 
-            {/* Contact Form */}
             <AnimatedSection className="lg:col-span-3">
               <Card data-testid="card-contact-form">
                 <CardContent className="p-6 sm:p-8">
@@ -973,7 +1010,7 @@ export default function Portfolio() {
                 <div className="font-bold text-white text-sm" data-testid="text-footer-name">
                   Saroj Jaiswal
                 </div>
-                <div className="text-white/50 text-xs">Mechanical Engineer · Abu Dhabi, UAE</div>
+                <div className="text-white/50 text-xs">Job Performer Mechanical (ADNOC Approved) · Abu Dhabi, UAE</div>
               </div>
             </div>
 
@@ -990,20 +1027,18 @@ export default function Portfolio() {
               ))}
             </nav>
 
-            <div className="flex items-center gap-3">
-              <Button
-                size="sm"
-                variant="outline"
-                className="border-white/20 text-white/70 bg-transparent"
-                asChild
-                data-testid="button-footer-cv"
-              >
-                <a href="#" download>
-                  <Download className="w-3.5 h-3.5 mr-1.5" />
-                  Download CV
-                </a>
-              </Button>
-            </div>
+            <Button
+              size="sm"
+              variant="outline"
+              className="border-white/20 text-white/70 bg-transparent"
+              asChild
+              data-testid="button-footer-cv"
+            >
+              <a href="#" download>
+                <Download className="w-3.5 h-3.5 mr-1.5" />
+                Download CV
+              </a>
+            </Button>
           </div>
 
           <div className="mt-8 pt-6 border-t border-white/5 text-center">
