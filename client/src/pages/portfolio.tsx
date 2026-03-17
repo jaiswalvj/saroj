@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import profilePhoto from "@assets/WhatsApp_Image_2026-03-18_at_1.21.05_AM_1773776770657.jpeg";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -376,8 +377,13 @@ export default function Portfolio() {
             transition={{ duration: 0.5 }}
             className="mb-6"
           >
-            <div className="w-28 h-28 rounded-full bg-gradient-to-br from-primary to-accent mx-auto flex items-center justify-center text-white text-4xl font-bold shadow-xl border-4 border-white/20">
-              SJ
+            <div className="w-28 h-28 rounded-full mx-auto shadow-xl border-4 border-white/20 overflow-hidden">
+              <img
+                src={profilePhoto}
+                alt="Saroj Jaiswal"
+                className="w-full h-full object-cover object-top"
+                data-testid="img-profile-photo"
+              />
             </div>
           </motion.div>
 
