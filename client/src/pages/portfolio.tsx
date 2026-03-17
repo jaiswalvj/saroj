@@ -456,7 +456,7 @@ export default function Portfolio() {
           >
             {[
               { value: "5+", label: "Years Experience" },
-              { value: "2", label: "ADNOC CT IDs" },
+              { value: "2+", label: "Countries" },
               { value: "5", label: "Companies Worked" },
             ].map((stat) => (
               <div key={stat.label} className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, '-')}`}>
