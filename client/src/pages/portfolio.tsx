@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
 import {
   Menu, X, Download, Mail, Phone, MapPin, ExternalLink,
   ChevronDown, Wrench, Cog, Shield, Users, Lightbulb,
@@ -218,8 +220,30 @@ export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [sending, setSending] = useState(false);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [modalFormData, setModalFormData] = useState({ name: "", email: "", message: "" });
   const { toast } = useToast();
+
+  const contactMutation = useMutation({
+    mutationFn: (data: { name: string; email: string; message: string }) =>
+      apiRequest("POST", "/api/contact", data),
+    onSuccess: (_, vars) => {
+      toast({
+        title: "Message sent!",
+        description: "Saroj will get back to you soon.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+      setModalFormData({ name: "", email: "", message: "" });
+      setContactModalOpen(false);
+    },
+    onError: () => {
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or email directly.",
+        variant: "destructive",
+      });
+    },
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -238,20 +262,22 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleContactSubmit = async (e: React.FormEvent) => {
+  const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       toast({ title: "Please fill in all fields", variant: "destructive" });
       return;
     }
-    setSending(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setSending(false);
-    setFormData({ name: "", email: "", message: "" });
-    toast({
-      title: "Message sent successfully!",
-      description: "Thank you for reaching out. Saroj will get back to you soon.",
-    });
+    contactMutation.mutate(formData);
+  };
+
+  const handleModalSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!modalFormData.name || !modalFormData.email || !modalFormData.message) {
+      toast({ title: "Please fill in all fields", variant: "destructive" });
+      return;
+    }
+    contactMutation.mutate(modalFormData);
   };
 
   return (
@@ -281,22 +307,39 @@ export default function Portfolio() {
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-1">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  data-testid={`link-nav-${item.label.toLowerCase()}`}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    activeSection === item.href.slice(1)
-                      ? "text-primary bg-primary/10"
-                      : scrolled
-                      ? "text-muted-foreground hover:text-foreground"
-                      : "text-white/80 hover:text-white"
-                  }`}
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) =>
+                item.label === "Contact" ? (
+                  <button
+                    key={item.label}
+                    onClick={() => setContactModalOpen(true)}
+                    data-testid="button-nav-contact"
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                      activeSection === "contact"
+                        ? "text-primary bg-primary/10"
+                        : scrolled
+                        ? "text-muted-foreground hover:text-foreground"
+                        : "text-white/80 hover:text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ) : (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    data-testid={`link-nav-${item.label.toLowerCase()}`}
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                      activeSection === item.href.slice(1)
+                        ? "text-primary bg-primary/10"
+                        : scrolled
+                        ? "text-muted-foreground hover:text-foreground"
+                        : "text-white/80 hover:text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                )
+              )}
               <Button size="sm" className="ml-2" asChild data-testid="button-nav-cv">
                 <a href="#" download>
                   <Download className="w-3.5 h-3.5 mr-1.5" />
@@ -328,17 +371,28 @@ export default function Portfolio() {
               className="md:hidden bg-card border-b border-border overflow-hidden"
             >
               <div className="px-4 py-3 space-y-1">
-                {navItems.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    data-testid={`link-mobile-${item.label.toLowerCase()}`}
-                    className="block px-3 py-2.5 rounded-md text-sm font-medium text-foreground hover:bg-muted transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                ))}
+                {navItems.map((item) =>
+                  item.label === "Contact" ? (
+                    <button
+                      key={item.label}
+                      onClick={() => { setMobileMenuOpen(false); setContactModalOpen(true); }}
+                      data-testid="button-mobile-contact"
+                      className="block w-full text-left px-3 py-2.5 rounded-md text-sm font-medium text-foreground hover:bg-muted transition-colors"
+                    >
+                      {item.label}
+                    </button>
+                  ) : (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      data-testid={`link-mobile-${item.label.toLowerCase()}`}
+                      className="block px-3 py-2.5 rounded-md text-sm font-medium text-foreground hover:bg-muted transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </a>
+                  )
+                )}
                 <div className="pt-2 pb-1">
                   <Button size="sm" className="w-full" asChild data-testid="button-mobile-cv">
                     <a href="#" download>
@@ -352,6 +406,109 @@ export default function Portfolio() {
           )}
         </AnimatePresence>
       </header>
+
+      {/* ── CONTACT MODAL ── */}
+      <AnimatePresence>
+        {contactModalOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm"
+              onClick={() => setContactModalOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="fixed inset-0 z-[70] flex items-center justify-center p-4 pointer-events-none"
+            >
+              <div className="w-full max-w-md bg-card rounded-2xl shadow-2xl border border-border pointer-events-auto overflow-hidden">
+                {/* Modal Header */}
+                <div className="flex items-center justify-between px-6 py-5 border-b border-border">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <Mail className="w-4 h-4 text-primary" />
+                    </div>
+                    <div>
+                      <h2 className="font-bold text-card-foreground text-base">Send a Message</h2>
+                      <p className="text-xs text-muted-foreground">Goes directly to Saroj's inbox</p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setContactModalOpen(false)}
+                    className="w-8 h-8 rounded-md flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                    data-testid="button-modal-close"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+
+                {/* Modal Form */}
+                <form onSubmit={handleModalSubmit} className="p-6 space-y-4">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="modal-name">Your Name</Label>
+                    <Input
+                      id="modal-name"
+                      placeholder="John Doe"
+                      value={modalFormData.name}
+                      onChange={(e) => setModalFormData({ ...modalFormData, name: e.target.value })}
+                      data-testid="input-modal-name"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <Label htmlFor="modal-email">Email Address</Label>
+                    <Input
+                      id="modal-email"
+                      type="email"
+                      placeholder="john@example.com"
+                      value={modalFormData.email}
+                      onChange={(e) => setModalFormData({ ...modalFormData, email: e.target.value })}
+                      data-testid="input-modal-email"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <Label htmlFor="modal-message">Message</Label>
+                    <Textarea
+                      id="modal-message"
+                      placeholder="Tell me about your project or opportunity..."
+                      rows={4}
+                      value={modalFormData.message}
+                      onChange={(e) => setModalFormData({ ...modalFormData, message: e.target.value })}
+                      data-testid="input-modal-message"
+                      className="resize-none"
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={contactMutation.isPending}
+                    data-testid="button-modal-submit"
+                  >
+                    {contactMutation.isPending ? (
+                      <>
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                          className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full mr-2"
+                        />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* ── HERO ── */}
       <section
@@ -963,10 +1120,10 @@ export default function Portfolio() {
                     <Button
                       type="submit"
                       className="w-full"
-                      disabled={sending}
+                      disabled={contactMutation.isPending}
                       data-testid="button-contact-submit"
                     >
-                      {sending ? (
+                      {contactMutation.isPending ? (
                         <>
                           <motion.div
                             animate={{ rotate: 360 }}
