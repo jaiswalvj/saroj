@@ -11,7 +11,7 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import {
   Menu, X, Download, Mail, Phone, MapPin, ExternalLink,
-  ChevronDown, Wrench, Cog, Shield, Users, Lightbulb,
+  ChevronDown, ArrowUp, Wrench, Cog, Shield, Users, Lightbulb,
   Zap, Award, Briefcase, Code, Settings, CheckCircle2,
   Star, Building2, GraduationCap, Send, ClipboardCheck,
   AlertTriangle, Lock, Factory, Globe, BookOpen
@@ -1201,6 +1201,24 @@ export default function Portfolio() {
           </div>
         </div>
       </footer>
+
+      {/* ── BACK TO TOP ── */}
+      <AnimatePresence>
+        {scrolled && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 10 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-primary text-white shadow-lg flex items-center justify-center hover:bg-primary/90 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
+            aria-label="Back to top"
+            data-testid="button-back-to-top"
+          >
+            <ArrowUp className="w-5 h-5" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
