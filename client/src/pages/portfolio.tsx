@@ -534,7 +534,7 @@ export default function Portfolio() {
             transition={{ duration: 0.5 }}
             className="mb-6"
           >
-            <div className="w-28 h-28 rounded-full mx-auto shadow-xl border-4 border-white/20 overflow-hidden">
+            <div className="w-36 h-36 rounded-full mx-auto shadow-xl border-4 border-white/20 overflow-hidden">
               <img
                 src={profilePhoto}
                 alt="Saroj Jaiswal"
@@ -562,7 +562,7 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight tracking-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight tracking-tight"
             data-testid="text-hero-name"
           >
             Saroj Jaiswal
