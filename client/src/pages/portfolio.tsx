@@ -854,20 +854,6 @@ export default function Portfolio() {
 
                 {[
                   {
-                    icon: Phone,
-                    label: "UAE Phone",
-                    value: "+971 507309742",
-                    href: "tel:+971507309742",
-                    testid: "link-phone-uae",
-                  },
-                  {
-                    icon: Phone,
-                    label: "Nepal Phone",
-                    value: "+977-9845857240",
-                    href: "tel:+9779845857240",
-                    testid: "link-phone-nepal",
-                  },
-                  {
                     icon: Mail,
                     label: "Email",
                     value: "jaiswalsarojj821@gmail.com",
