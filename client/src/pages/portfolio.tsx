@@ -612,7 +612,7 @@ export default function Portfolio() {
             {[
               { value: "5+", label: "Years Experience" },
               { value: "2+", label: "Countries Worked" },
-              { value: "5", label: "Companies Worked" },
+              { value: "5+", label: "Companies Worked" },
             ].map((stat) => (
               <div key={stat.label} className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, '-')}`}>
                 <div className="text-2xl sm:text-3xl font-bold text-white">{stat.value}</div>
@@ -1061,13 +1061,10 @@ export default function Portfolio() {
 
                 <Card data-testid="card-availability">
                   <CardContent className="p-4">
-                    <div className="flex items-center gap-2 mb-2">
+                    <div className="flex items-center gap-2">
                       <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
                       <span className="text-sm font-semibold text-foreground">Open to Opportunities</span>
                     </div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      Actively seeking roles in mechanical engineering, HSE, PTW coordination, and industrial operations.
-                    </p>
                   </CardContent>
                 </Card>
               </div>
