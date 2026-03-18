@@ -604,20 +604,31 @@ export default function Portfolio() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
-            className="mt-16 flex justify-center gap-8 flex-wrap"
+            className="mt-16 grid grid-cols-3 gap-3 sm:gap-4 max-w-lg mx-auto w-full px-2"
           >
             {[
-              { value: "5+", label: "Years Experience" },
-              { value: "2+", label: "Countries Worked" },
-              { value: "4+", label: "Companies Worked" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, '-')}`}>
-                <div className="text-2xl sm:text-3xl font-bold text-white">{stat.value}</div>
-                <div className="text-xs sm:text-sm text-white/55 mt-0.5">{stat.label}</div>
-              </div>
+              { value: "5+", label: "Years Experience", icon: Briefcase },
+              { value: "2+", label: "Countries Worked", icon: Globe },
+              { value: "4+", label: "Companies Worked", icon: Building2 },
+            ].map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.1 + i * 0.1 }}
+                data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, '-')}`}
+                className="relative flex flex-col items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md px-3 py-5 text-center overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none rounded-2xl" />
+                <div className="w-8 h-8 rounded-lg bg-primary/25 flex items-center justify-center mb-0.5">
+                  <stat.icon className="w-4 h-4 text-primary-foreground" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-bold text-white leading-none">{stat.value}</div>
+                <div className="text-[10px] sm:text-xs text-white/60 font-medium leading-tight">{stat.label}</div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
