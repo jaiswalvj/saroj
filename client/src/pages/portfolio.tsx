@@ -585,11 +585,9 @@ export default function Portfolio() {
             transition={{ duration: 0.6, delay: 0.45 }}
             className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap"
           >
-            <Button size="lg" asChild data-testid="button-hero-contact">
-              <a href="#contact">
-                <Mail className="w-4 h-4 mr-2" />
-                Contact Me
-              </a>
+            <Button size="lg" onClick={() => setContactModalOpen(true)} data-testid="button-hero-contact">
+              <Mail className="w-4 h-4 mr-2" />
+              Contact Me
             </Button>
             <Button
               size="lg"
@@ -701,11 +699,9 @@ export default function Portfolio() {
                 </div>
 
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <Button asChild data-testid="button-about-contact">
-                    <a href="#contact">
-                      <Send className="w-4 h-4 mr-2" />
-                      Get in Touch
-                    </a>
+                  <Button onClick={() => setContactModalOpen(true)} data-testid="button-about-contact">
+                    <Send className="w-4 h-4 mr-2" />
+                    Get in Touch
                   </Button>
                   <Button variant="outline" asChild data-testid="button-about-cv">
                     <a href="#">
